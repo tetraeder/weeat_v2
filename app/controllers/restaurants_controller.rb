@@ -10,20 +10,14 @@ class RestaurantsController < ApplicationController
     rating = params[:rating]
     time = params[:max_delivery_time]
 
-      @restaurants = Restaurant.includes(:comments)
-      @restaurants = @restaurants.where(name: name) if name.present?
-      @restaurants = @restaurants.where(rating: rating) if rating.present?
-      @restaurants = @restaurants.where(genre_id: genre) if genre.present?
-      @restaurants = @restaurants.where('max_delivery_time < ?', time) if time.present?
-      @restaurants = @restaurants.all
+    @restaurants = Restaurant.includes(:comments)
+    @restaurants = @restaurants.where(name: name) if name.present?
+    @restaurants = @restaurants.where(rating: rating) if rating.present?
+    @restaurants = @restaurants.where(genre_id: genre) if genre.present?
+    @restaurants = @restaurants.where('max_delivery_time < ?', time) if time.present?
+    @restaurants = @restaurants.all
 
-
-    # else
-    #   @restaurants = Restaurant.all
-    # end
   end
-
-
 
   # GET /restaurants/1
   # GET /restaurants/1.json
