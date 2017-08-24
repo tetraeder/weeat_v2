@@ -5,6 +5,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
+
 // import Genre from 'genre_react.jsx'
 
 class App extends React.Component {
@@ -32,6 +33,10 @@ class App extends React.Component {
         this.setState({ratingFilter: e.target.value})
     }
 
+    deliveryFilter(e) {
+        this.setState({deliveryFilter: e.target.value})
+    }
+
     genreFilter(e) {
         console.log(e)
         this.setState({genreFilter: e.target.value})
@@ -47,29 +52,61 @@ class App extends React.Component {
             items = items.filter(item => item.rating >= this.state.ratingFilter)
         }
 
-        if (this.state.genreFilter ) {
+        if (this.state.deliveryFilter){
+            items = items.filter(item => item.max_delivery_time <= this.state.deliveryFilter)
+        }
+
+        if (this.state.genreFilter) {
             items = items.filter(item =>
                 (item.genre_id == this.state.genreFilter) || (this.state.genreFilter == -1)
             )
         }
 
+        let rendered_items = <h4> No Restaurants Found </h4>
+
+        if (items.length > 0){
+            rendered_items =  items.map(item =>
+                <Restaurant key={item.id} restaurant={item}/>)
+        }
+
         return (
             <div>
-                <div className="jumbotron text-center">
+                <header className="wrapper" >
                     <h1>WeEat</h1>
-                    <p>Where do you want to eat?</p>
-                </div>
+                    <h2>Where do you want to eat?</h2>
+                    <rest-filter>
+                        Search <input type="text" onChange={this.nameFilter.bind(this)}/>
+                    </rest-filter>
+                </header>
 
-                Genre: <Genre onChange={this.genreFilter.bind(this)}/>
-                Name: <input type="text" onChange={this.nameFilter.bind(this)}/>
-                Rating Above: <input type="text" onChange={this.ratingFilter.bind(this)}/>
-                {items.map(item =>
-                    <Restaurant key={item.id} restaurant={item}/>)
-                }
+                <header className="sub sub-wrapper">
+                    <rest-filter>
+                        Cuisine <Genre onChange={this.genreFilter.bind(this)}/>
+                    </rest-filter>
+
+                    <rest-filter>
+                        Rating Above <input type="text" onChange={this.ratingFilter.bind(this)}/>
+                    </rest-filter>
+
+                    <rest-filter>
+                        Delivery Time <input type="text" onChange={this.deliveryFilter.bind(this)}/>
+                    </rest-filter>
+                </header>
+                <div className="sub-wrapper">
+                    <div className="rest-list">
+                        <div >
+                            {rendered_items}
+                        </div>
+                    </div>
+                </div>
+                <div className="col-8">
+
+                </div>
             </div>
         )
     }
 }
+
 
 class Genre extends React.Component {
     constructor(props) {
@@ -80,7 +117,7 @@ class Genre extends React.Component {
     componentWillMount() {
         fetch('http://localhost:3000/genres.json').then(response => response.json()).then(json => {
             var arrTen = [];
-            arrTen.push(<option key="-1" value="-1"> --- </option>);
+            arrTen.push(<option key="-1" value="-1"> All </option>);
             for (var k = 0; k < json.length; k++) {
                 arrTen.push(<option key={json[k].id} value={json[k].id}> {json[k].name} </option>);
             }
@@ -97,7 +134,7 @@ class Genre extends React.Component {
 
     render() {
         return (
-            <select onChange={this.onGenreSelected.bind(this)}>
+            <select className="cuisine-select" onChange={this.onGenreSelected.bind(this)}>
                 {this.state.items}
             </select>
         )
@@ -117,7 +154,7 @@ class Rating extends React.Component {
     componentWillMount() {
         var arrTen = [];
         for (var k = 0; k < this.props.restaurant.rating; k++) {
-            arrTen.push("*");
+            arrTen.push(<img src="/assets/star.png" className="star"></img>);
         }
 
         this.setState({
@@ -132,17 +169,34 @@ class Rating extends React.Component {
     }
 }
 
-const Restaurant = (props) => (
-    <div>
-        <h4 key={props.restaurant.name}> {props.restaurant.name} </h4>
-        <h5 key={props.restaurant.address}> {props.restaurant.address} </h5>
-        {/*<h5 key={props.restaurant.rating}> {props.restaurant.rating} </h5>*/}
-        <Rating  restaurant = {props.restaurant}/>
-        <br/>
-        <br/>
-    </div>
-)
+class Card extends React.Component {
+    constructor(props) {
+        super(props);
+    }
 
+    render() {
+        return <div>{this.props.restaurant.card ?  <img src="/assets/card.png" className="card"></img> : null}</div>;
+    }
+}
+
+
+const Restaurant = (props) => (
+    <div className="rest ">
+        <p className="logo">{props.restaurant.image_url}</p>
+        <div className="rest_title">
+            <span key={props.restaurant.name} className="menu_label"> {props.restaurant.name} </span>
+            <Card className="photoStyle" restaurant={props.restaurant}/>
+        </div>
+        <p key={props.restaurant.address}> {props.restaurant.address} </p>
+        <div className="row">
+            <p><span className="rating">Rating:</span></p>
+            <Rating className="photoStyle" restaurant={props.restaurant}/>
+        </div>
+        <p>{props.restaurant.max_delivery_time} minutes</p>
+
+    </div>
+
+)
 
 
 const Widget = (props) => (

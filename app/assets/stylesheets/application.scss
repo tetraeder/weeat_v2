@@ -1,0 +1,191 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+@font-face {
+  font-family: 'ef_cuisinesregular';
+  src: url('efcuisines-regular-webfont.eot');
+  src: url('efcuisines-regular-webfont.eot?#iefix') format('embedded-opentype'),
+  url('efcuisines-regular-webfont.woff') format('font-woff'),
+  url('efcuisines-regular-webfont.ttf') format('truetype'),
+  url('efcuisines-regular-webfont.svg#ef_cuisinesregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+  //
+//
+//
+//  /*font-family: 'EF Cuisines Reguler';
+//  src: url('//assets/fonts/efcuisines-regular-webfont.eot') format ()
+//  url('/assets/fonts/efcuisines-regular-webfont.ttf') format('truetype');
+//  font-weight: normal;
+//  font-style: normal;*/
+//}
+
+.cuisine_font { font-family: 'ef_cuisinesregular', sans-serif;}
+
+.matan{
+  margin: 0px
+}
+
+.wrapper {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+}
+
+.sub-wrapper {
+    display: flex;
+    align-content: left;
+    flex-direction: row;
+}
+
+header{
+    height: 350px;
+    background-image: url("back.jpg");
+}
+
+header.sub{
+    border: dotted;
+    border-color: peachpuff;
+    background-color: rgba(255, 0, 0, 0.65);
+    background-image: none;
+    height: 100px; /* Or whatever */
+    margin: auto;  /* Magic! */
+    align-items: center;
+}
+
+
+rest-filter {
+    font-family: verdana;
+    margin: auto;  /* Magic! */
+}
+
+.cuisine-select {
+    font-family: verdana;
+    width: 200px;  /* Or whatever */
+    margin: auto;  /* Magic! */
+}
+
+body {
+    font-family: verdana;
+    background-color: darkgray;
+    color: white;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    font-family: ef_cuisinesregular;
+    font-size: 50px;
+    margin: auto;  /* Magic! */
+
+}
+
+h4,h6{
+  color: darkslategray;
+}
+h2 {
+    color: white;
+    font-family: verdana;
+    text-align: center;
+}
+
+
+p {
+  color: black;
+  font-family: Verdana;
+  font-size: 10px;
+}
+
+.star {
+    width: 10px;
+    height: 10px;
+}
+
+.card {
+    width: 20px;
+    height: 15px;
+}
+
+.logo{
+  font-size: 25px;
+  padding-bottom: 15px;
+}
+
+.rest-list {
+  /* align-content: center; */
+  /* margin: auto; */
+  width: 300px;
+  padding-top: 25px;
+}
+
+.rest{
+  background-color: white;
+  margin-top: 10px;
+  position: relative;
+  border-radius: 3px;
+  padding-left: 20px;
+  padding-top: 1px;
+  padding-bottom: 2px;
+  line-height: 25px;
+  text-align: left;
+}
+
+.row{
+  padding-bottom: 25px;
+}
+
+th, td {
+  text-align: center;
+}
+
+p {
+  margin: auto;
+}
+
+.menu {width:170px; text-align:center; float:right; background-color:#CCCCCC; padding-top:10px; padding-bottom:20px;position:relative}
+
+.menu_label {
+  color: #000000;
+  background-color: #F43B05;
+  float: left;
+  margin-right: 10px;
+  font-family: Verdana;
+  top: 50px;
+  left: 5px;
+}
+
+.rating {
+  float: left;
+  margin-right: 10px;
+  top: 50px;
+  left: 5px;
+}
+
+.rest_title {
+  padding-bottom: 30px;
+}
+
+.photoStyle {
+  max-width: 125px;
+  border: 0px;
+  margin: auto;
+  padding-top: 4px;
+}
+
+
+
