@@ -14,7 +14,7 @@ class App extends React.Component {
     }
 
     componentWillMount() {
-        fetch('http://localhost:3000/restaurants.json').then(response => response.json()).then(json => {
+        fetch('https://localhost:3000/restaurants.json').then(response => response.json()).then(json => {
             this.setState({items: json})
         })
 
