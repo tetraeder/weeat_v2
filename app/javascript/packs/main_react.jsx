@@ -14,7 +14,7 @@ class App extends React.Component {
     }
 
     componentWillMount() {
-        fetch('https://glacial-garden-10277.herokuapp.com/restaurants.json').then(response => response.json()).then(json => {
+        fetch('restaurants.json').then(response => response.json()).then(json => {
             this.setState({items: json})
         })
 
