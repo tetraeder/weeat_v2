@@ -14,28 +14,13 @@
  *= require_self
  */
 
-
-@font-face {
-  font-family: 'ef_cuisinesregular';
-  src: url('efcuisines-regular-webfont.eot');
-  src: url('efcuisines-regular-webfont.eot?#iefix') format('embedded-opentype'),
-  url('efcuisines-regular-webfont.woff') format('font-woff'),
-  url('efcuisines-regular-webfont.ttf') format('truetype'),
-  url('efcuisines-regular-webfont.svg#ef_cuisinesregular') format('svg');
-  font-weight: normal;
-  font-style: normal;
+.cuisine_font {
+  font-family: 'ef_cuisinesregular', sans-serif;
+  font-size: 40px;
+  color: rgba(255, 0, 0, 0.65);
+  padding: 10px;
+  text-align:center;
 }
-  //
-//
-//
-//  /*font-family: 'EF Cuisines Reguler';
-//  src: url('//assets/fonts/efcuisines-regular-webfont.eot') format ()
-//  url('/assets/fonts/efcuisines-regular-webfont.ttf') format('truetype');
-//  font-weight: normal;
-//  font-style: normal;*/
-//}
-
-.cuisine_font { font-family: 'ef_cuisinesregular', sans-serif;}
 
 .matan{
   margin: 0px
@@ -59,7 +44,6 @@ header{
 }
 
 header.sub{
-    border: dotted;
     border-color: peachpuff;
     background-color: rgba(255, 0, 0, 0.65);
     background-image: none;
@@ -89,7 +73,7 @@ body {
 h1 {
     color: white;
     text-align: center;
-    font-family: ef_cuisinesregular;
+    font-family: Verdana;
     font-size: 50px;
     margin: auto;  /* Magic! */
 
@@ -119,11 +103,6 @@ p {
 .card {
     width: 20px;
     height: 15px;
-}
-
-.logo{
-  font-size: 25px;
-  padding-bottom: 15px;
 }
 
 .rest-list {
@@ -157,7 +136,15 @@ p {
   margin: auto;
 }
 
-.menu {width:170px; text-align:center; float:right; background-color:#CCCCCC; padding-top:10px; padding-bottom:20px;position:relative}
+.menu {
+  width: 170px;
+  text-align: center;
+  float: right;
+  background-color: #CCCCCC;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  position: relative
+}
 
 .menu_label {
   color: #000000;
@@ -167,6 +154,7 @@ p {
   font-family: Verdana;
   top: 50px;
   left: 5px;
+  text-align: center;
 }
 
 .rating {

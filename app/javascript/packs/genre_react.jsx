@@ -1,3 +1,5 @@
+import React from 'react'
+
 class Genre extends React.Component {
     constructor(props) {
         super(props);
@@ -7,7 +9,7 @@ class Genre extends React.Component {
     componentWillMount() {
         fetch('http://localhost:3000/genres.json').then(response => response.json()).then(json => {
             var arrTen = [];
-            arrTen.push(<option key="-1" value="-1"> --- </option>);
+            arrTen.push(<option key="-1" value="-1"> All </option>);
             for (var k = 0; k < json.length; k++) {
                 arrTen.push(<option key={json[k].id} value={json[k].id}> {json[k].name} </option>);
             }
@@ -24,7 +26,7 @@ class Genre extends React.Component {
 
     render() {
         return (
-            <select onChange={this.onGenreSelected.bind(this)}>
+            <select className="cuisine-select" onChange={this.onGenreSelected.bind(this)}>
                 {this.state.items}
             </select>
         )

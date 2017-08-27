@@ -4,9 +4,8 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
-
-// import Genre from 'genre_react.jsx'
+import Genre from './genre_react'
+import Restaurant from './restaurant_react'
 
 class App extends React.Component {
     constructor(props) {
@@ -44,30 +43,7 @@ class App extends React.Component {
     }
 
     render() {
-        let items = this.state.items
-        if (this.state.nameFilter) {
-            items = items.filter(item => item.name.toLowerCase().includes(this.state.nameFilter.toLowerCase()))
-        }
-        if (this.state.ratingFilter) {
-            items = items.filter(item => item.rating >= this.state.ratingFilter)
-        }
-
-        if (this.state.deliveryFilter){
-            items = items.filter(item => item.max_delivery_time <= this.state.deliveryFilter)
-        }
-
-        if (this.state.genreFilter) {
-            items = items.filter(item =>
-                (item.genre_id == this.state.genreFilter) || (this.state.genreFilter == -1)
-            )
-        }
-
-        let rendered_items = <h4> No Restaurants Found </h4>
-
-        if (items.length > 0){
-            rendered_items =  items.map(item =>
-                <Restaurant key={item.id} restaurant={item}/>)
-        }
+        let rendered_items = this.filter_restaurants();
 
         return (
             <div>
@@ -89,7 +65,7 @@ class App extends React.Component {
                     </rest-filter>
 
                     <rest-filter>
-                        Delivery Time <input type="text" onChange={this.deliveryFilter.bind(this)}/>
+                        Delivery Time Up To <input type="text" onChange={this.deliveryFilter.bind(this)}/>
                     </rest-filter>
                 </header>
                 <div className="sub-wrapper">
@@ -105,99 +81,40 @@ class App extends React.Component {
             </div>
         )
     }
-}
 
+    filter_restaurants() {
+        let items = this.state.items
+        if (this.state.nameFilter) {
+            items = items.filter(item => item.name.toLowerCase().includes(this.state.nameFilter.toLowerCase()))
+        }
+        if (this.state.ratingFilter) {
+            items = items.filter(item => item.rating >= this.state.ratingFilter)
+        }
 
-class Genre extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {items: []}
-    }
+        if (this.state.deliveryFilter) {
+            items = items.filter(item => item.max_delivery_time <= this.state.deliveryFilter)
+        }
 
-    componentWillMount() {
-        fetch('http://localhost:3000/genres.json').then(response => response.json()).then(json => {
-            var arrTen = [];
-            arrTen.push(<option key="-1" value="-1"> All </option>);
-            for (var k = 0; k < json.length; k++) {
-                arrTen.push(<option key={json[k].id} value={json[k].id}> {json[k].name} </option>);
-            }
+        if (this.state.genreFilter) {
+            items = items.filter(item =>
+                (item.genre_id == this.state.genreFilter) || (this.state.genreFilter == -1)
+            )
+        }
 
-            this.setState({
-                items: arrTen
-            });
-        })
-    }
+        let rendered_items = <h4> No Restaurants Found </h4>
 
-    onGenreSelected(value) {
-        this.props.onChange(value)
-    }
-
-    render() {
-        return (
-            <select className="cuisine-select" onChange={this.onGenreSelected.bind(this)}>
-                {this.state.items}
-            </select>
-        )
+        if (items.length > 0) {
+            rendered_items = items.map(item =>
+                <Restaurant key={item.id} restaurant={item}/>)
+        }
+        return rendered_items;
     }
 }
+
 
 App.propTypes = {
     name: React.PropTypes.string
 }
-
-class Rating extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {items: []}
-    }
-
-    componentWillMount() {
-        var arrTen = [];
-        for (var k = 0; k < this.props.restaurant.rating; k++) {
-            arrTen.push(<img src="/assets/star.png" className="star"></img>);
-        }
-
-        this.setState({
-            items: arrTen
-        });
-    }
-
-    render() {
-        return (
-            <div>{this.state.items}</div>
-        )
-    }
-}
-
-class Card extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return <div>{this.props.restaurant.card ?  <img src="/assets/card.png" className="card"></img> : null}</div>;
-    }
-}
-
-
-const Restaurant = (props) => (
-    <div className="rest ">
-        <p className="logo">{props.restaurant.image_url}</p>
-        <div className="rest_title">
-            <span key={props.restaurant.name} className="menu_label"> {props.restaurant.name} </span>
-            <Card className="photoStyle" restaurant={props.restaurant}/>
-        </div>
-        <p key={props.restaurant.address}> {props.restaurant.address} </p>
-        <div className="row">
-            <p><span className="rating">Rating:</span></p>
-            <Rating className="photoStyle" restaurant={props.restaurant}/>
-        </div>
-        <p>{props.restaurant.max_delivery_time} minutes</p>
-
-    </div>
-
-)
-
 
 const Widget = (props) => (
     <input type="text" onChange={props.update}/>
