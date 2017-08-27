@@ -7,7 +7,7 @@ class Genre extends React.Component {
     }
 
     componentWillMount() {
-        fetch('https://localhost:3000/genres.json').then(response => response.json()).then(json => {
+        fetch('https://glacial-garden-10277.herokuapp.com/genres.json').then(response => response.json()).then(json => {
             var arrTen = [];
             arrTen.push(<option key="-1" value="-1"> All </option>);
             for (var k = 0; k < json.length; k++) {
