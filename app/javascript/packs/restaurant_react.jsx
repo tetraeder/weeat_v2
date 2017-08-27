@@ -9,11 +9,13 @@ const Restaurant = (props) => (
             <span key={props.restaurant.name} className="menu_label"> {props.restaurant.name} </span>
             <Card className="photoStyle" restaurant={props.restaurant}/>
         </div>
-        <p key={props.restaurant.address}> {props.restaurant.address} </p>
-        <div className="row">
+        <div>
             <p><span className="rating">Rating:</span></p>
             <Rating className="photoStyle" restaurant={props.restaurant}/>
+            <br></br>
         </div>
+        <p key={props.restaurant.address}> {props.restaurant.address} </p>
+
         <p>{props.restaurant.max_delivery_time} minutes</p>
 
     </div>

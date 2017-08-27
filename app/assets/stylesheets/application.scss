@@ -18,8 +18,8 @@
   font-family: 'ef_cuisinesregular', sans-serif;
   font-size: 40px;
   color: rgba(255, 0, 0, 0.65);
-  padding: 10px;
-  text-align:center;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .matan{
@@ -124,10 +124,6 @@ p {
   text-align: left;
 }
 
-.row{
-  padding-bottom: 25px;
-}
-
 th, td {
   text-align: center;
 }
@@ -148,11 +144,10 @@ p {
 
 .menu_label {
   color: #000000;
-  background-color: #F43B05;
   float: left;
   margin-right: 10px;
   font-family: Verdana;
-  top: 50px;
+  //top: 50px;
   left: 5px;
   text-align: center;
 }
@@ -160,12 +155,12 @@ p {
 .rating {
   float: left;
   margin-right: 10px;
-  top: 50px;
+  //top: 50px;
   left: 5px;
 }
 
 .rest_title {
-  padding-bottom: 30px;
+  //padding-bottom: 30px;
 }
 
 .photoStyle {

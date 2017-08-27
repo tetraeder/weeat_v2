@@ -6,7 +6,7 @@ class Card extends React.Component {
     }
 
     render() {
-        return <div>{this.props.restaurant.card ?  <img src="/assets/card.png" className="card"></img> : null}</div>;
+        return <div>{this.props.restaurant.card ?  <img src="/assets/card.png" className="card"></img> : <br></br>}</div>;
     }
 }
 
