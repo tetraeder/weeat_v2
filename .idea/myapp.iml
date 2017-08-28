@@ -471,6 +471,18 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="pg (vbundled(0.21.0)) [path][gem]">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.3.0/gems/pg-0.21.0/ext" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.3.0/gems/pg-0.21.0/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.3.0/gems/pg-0.21.0/ext" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.3.0/gems/pg-0.21.0/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="public_suffix (vbundled(2.0.5)) [path][gem]">
         <CLASSES>
           <root url="file://$MODULE_DIR$/.bundle/ruby/2.3.0/gems/public_suffix-2.0.5/lib" />
