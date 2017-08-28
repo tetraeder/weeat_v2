@@ -20,6 +20,8 @@ default: &default
     - .gif
     - .jpeg
     - .jpg
+    - .woff
+    - .ttf
 
 development:
   <<: *default

@@ -14,8 +14,10 @@ module Myapp
     config.assets.enabled = true
     # config.assets.paths << Rails.root.join('/app/assets/fonts')
     config.serve_static_assets = true
+    config.assets.digest = true
 
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
+    config.assets.paths << Rails.root.join("app", "assets", "images")
 
     FactoryGirl.definition_file_paths << Pathname.new("../factories")
     FactoryGirl.definition_file_paths.uniq!
