@@ -66,3 +66,5 @@ source "https://rubygems.org"
 gem 'listen', '>= 3.0.5', '< 3.2'
 gem 'rspec-rails', '~> 3.0'
 gem 'factory_girl'
+gem 'rails_12factor', group: :production
+

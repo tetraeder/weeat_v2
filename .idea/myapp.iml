@@ -571,6 +571,40 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="rails_12factor (vbundled(0.0.3)) [path][gem]">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.3.0/gems/rails_12factor-0.0.3/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.3.0/gems/rails_12factor-0.0.3/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="rails_serve_static_assets (vbundled(0.0.5)) [path][gem]">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.3.0/gems/rails_serve_static_assets-0.0.5/lib" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.3.0/gems/rails_serve_static_assets-0.0.5/gemfiles" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.3.0/gems/rails_serve_static_assets-0.0.5/lib" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.3.0/gems/rails_serve_static_assets-0.0.5/gemfiles" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="rails_stdout_logging (vbundled(0.0.5)) [path][gem]">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.3.0/gems/rails_stdout_logging-0.0.5/lib" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.3.0/gems/rails_stdout_logging-0.0.5/gemfiles" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.3.0/gems/rails_stdout_logging-0.0.5/lib" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.3.0/gems/rails_stdout_logging-0.0.5/gemfiles" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="railties (vbundled(5.1.3)) [path][gem]">
         <CLASSES>
           <root url="file://$MODULE_DIR$/.bundle/ruby/2.3.0/gems/railties-5.1.3/exe" />
